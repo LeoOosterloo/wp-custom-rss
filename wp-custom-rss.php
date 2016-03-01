@@ -37,8 +37,6 @@ $posts = query_posts( array(
     'posts_per_page' => $numposts,
 ) );
 
-$lastpost = $numposts - 1;
-
 header("Content-Type: application/rss+xml; charset=UTF-8");
 echo '<?xml version="1.0"?>'; ?>
 <rss version="2.0">
@@ -47,8 +45,8 @@ echo '<?xml version="1.0"?>'; ?>
 		<link>https://smileconnects.nl/</link>
 		<description>The latest posts from Smileconnects.nl.</description>
 		<language>nl-NL</language>
-		<pubDate><?php pronamic_rss_date( strtotime( $ps[$lastpost]->post_date_gmt ) ); ?></pubDate>
-		<lastBuildDate><?php pronamic_rss_date( strtotime( $ps[$lastpost]->post_date_gmt ) ); ?></lastBuildDate>
+		<pubDate><?php pronamic_rss_date( strtotime( $posts[0]->post_date_gmt ) ); ?></pubDate>
+		<lastBuildDate><?php pronamic_rss_date( strtotime( $posts[0]->post_date_gmt ) ); ?></lastBuildDate>
 
 		<?php foreach ( $posts as $post ) : ?>
 
