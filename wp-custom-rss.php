@@ -54,8 +54,7 @@ echo '<?xml version="1.0"?>'; ?>
 			<title><?php echo get_the_title( $post->ID ); ?></title>
 			<link><?php echo get_permalink( $post->ID ); ?></link>
 			<enclosure url="<?php echo wp_get_thumbnail_url(get_the_ID()); ?>" type="image/jpeg" />
-	 		<description><?php echo '<![CDATA[' . pronamic_rss_text_limit( $post->post_content, 500 ) . ']]>';  ?></description>
-			<description><?php echo get_post_meta( $post->ID, 'name-of-meta-veld', true ); ?></description>
+	 		<description><?php echo '<![CDATA[' . pronamic_rss_text_limit( $post->post_content, 500 ), ' ', get_post_meta( $post->ID, 'name-of-meta-veld', true ) . ']]>';  ?></description>
 			<pubDate><?php pronamic_rss_date( strtotime( $post->post_date_gmt ) ); ?></pubDate>
 			<guid><?php echo get_permalink( $post->ID ); ?></guid>
 		</item>
